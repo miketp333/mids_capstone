@@ -1,11 +1,11 @@
-speaker,session,mic,prompt_id,has_spect,spect_width,spect_height,prompt
-F01,Session1,wav_headMic,0014,yes,206,513,he slowly takes a short walk in the open air each day.
-F01,Session1,wav_headMic,0015,yes,67,513,air
-F01,Session1,wav_headMic,0018,yes,65,513,no
-F01,Session1,wav_headMic,0020,yes,153,513,Usually minus several buttons.
-F01,Session1,wav_headMic,0024,yes,53,513,knee
-F01,Session1,wav_headMic,0025,yes,73,513,feet
-F01,Session1,wav_headMic,0031,yes,145,513,The quick brown fox jumps over the lazy dog.
-F01,Session1,wav_headMic,0032,yes,237,513,She had your dark suit in greasy wash water all year.
-F01,Session1,wav_headMic,0046,yes,44,513,chair
-F01,Session1,wav_headMic,0075,yes,43,513,warm
+speaker|session|mic|prompt_id|has_spect|spect_width|spect_height|prompt
+F01|Session1|wav_headMic|0014|yes|206|513|he slowly takes a short walk in the open air each day.
+F01|Session1|wav_headMic|0015|yes|67|513|air
+F01|Session1|wav_headMic|0018|yes|65|513|no
+F01|Session1|wav_headMic|0020|yes|153|513|Usually minus several buttons.
+F01|Session1|wav_headMic|0024|yes|53|513|knee
+F01|Session1|wav_headMic|0025|yes|73|513|feet
+F01|Session1|wav_headMic|0031|yes|145|513|The quick brown fox jumps over the lazy dog.
+F01|Session1|wav_headMic|0032|yes|237|513|She had your dark suit in greasy wash water all year.
+F01|Session1|wav_headMic|0046|yes|44|513|chair
+F01|Session1|wav_headMic|0075|yes|43|513|warm
