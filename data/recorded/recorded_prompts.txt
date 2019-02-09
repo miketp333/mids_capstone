@@ -1,0 +1,10 @@
+1|what day is today
+2|how are you
+3|i am hungry
+4|i need to go to the bathroom
+5|i am tired
+6|i am happy
+7|i am sad
+8|the quick brown fox jumped over the lazy dog
+9|i want to go for a walk
+10|please turn on the tv
