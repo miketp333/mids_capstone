@@ -95,9 +95,6 @@ function viewAlbum(albumName) {
       return getHtml([
         '<span>',
           '<div>',
-            '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
-          '</div>',
-          '<div>',
             '<span onclick="deletePhoto(\'' + albumName + "','" + photoKey + '\')">',
               'X',
             '</span>',
@@ -119,7 +116,7 @@ function viewAlbum(albumName) {
       '<div>',
         getHtml(photos),
       '</div>',
-      '<input id="photoupload" type="file" accept="image/*">',
+      '<input id="photoupload" type="file" accept="audio/*">',
       '<button id="addphoto" onclick="addPhoto(\'' + albumName +'\')">',
         'Add Photo',
       '</button>',
