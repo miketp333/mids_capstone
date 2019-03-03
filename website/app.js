@@ -15,6 +15,10 @@ var s3 = new AWS.S3({
   params: {Bucket: albumBucketName}
 });
 
+var dynamodb = new AWS.DynamoDB({
+  apiVersion: '2012-08-10'
+});
+
 function listAlbums() {
   s3.listObjects({Delimiter: '/'}, function(err, data) {
     if (err) {
@@ -24,12 +28,16 @@ function listAlbums() {
         var prefix = commonPrefix.Prefix;
         var albumName = decodeURIComponent(prefix.replace('/', ''));
         return getHtml([
-          '<li>',
-            '<span onclick="deleteAlbum(\'' + albumName + '\')">X</span>',
-            '<span onclick="viewAlbum(\'' + albumName + '\')">',
-              albumName,
-            '</span>',
-          '</li>'
+          '<tr>',
+            '<th>',
+              '<span onclick="deleteAlbum(\'' + albumName + '\')">X</span>',
+            '</th>',
+            '<th>',
+              '<span onclick="viewAlbum(\'' + albumName + '\')">',
+                albumName,
+              '</span>',
+            '</th>',
+          '</tr>',
         ]);
       });
       var message = albums.length ?
@@ -41,9 +49,9 @@ function listAlbums() {
       var htmlTemplate = [
         '<h2>Albums</h2>',
         message,
-        '<ul>',
+        '<table>',
           getHtml(albums),
-        '</ul>',
+        '</table>',
         '<button onclick="createAlbum(prompt(\'Enter Album Name:\'))">',
           'Create New Album',
         '</button>'
@@ -79,8 +87,29 @@ function createAlbum(albumName) {
   });
 }
 
+function getTranslation(s3_url) {
+  var params = {
+    TableName: 'audio_translations',
+    Key: {
+      's3_file': {S: '0014.wav'}
+    }
+  };
+  var result = ''
+  var dynamoResult = dynamodb.getItem(params, function(err, data) {
+    if (err) {
+      console.log("Error", err);
+    } else {
+      console.log("Success", data.Item.translation.S);
+      var result = data.Item.translation.S;
+    }
+  });
+  return result;
+}
+
 function viewAlbum(albumName) {
   var albumAudiosKey = encodeURIComponent(albumName) + '//';
+  var audioSTR = getTranslation('0014.wav');
+  console.log("1audiostr is", audioSTR)
   s3.listObjects({Prefix: albumAudiosKey}, function(err, data) {
     if (err) {
       return alert('There was an error viewing your album: ' + err.message);
@@ -93,17 +122,19 @@ function viewAlbum(albumName) {
       var audioKey = audio.Key;
       var audioUrl = bucketUrl + encodeURIComponent(audioKey);
       return getHtml([
-        '<span>',
-          '<div>',
+        '<tr>',
+          '<th>',
             '<span onclick="deleteaudio(\'' + albumName + "','" + audioKey + '\')">',
               'X',
             '</span>',
-            '<span>',
-              audioKey.replace(albumAudiosKey, ''),
-            '</span>',
-          '</div>',
-        '</span>',
-      ]);
+          '</th>',
+          '<th>',
+            audioKey.replace(albumAudiosKey, ''),
+          '</th>',
+          '<th>',
+            audioSTR,
+          '</tr>'
+        ]);
     });
     var message = audios.length ?
       '<p>Click on the X to delete the audio</p>' :
@@ -114,7 +145,9 @@ function viewAlbum(albumName) {
       '</h2>',
       message,
       '<div>',
-        getHtml(audios),
+        '<table>',
+          getHtml(audios),
+        '</table>',
       '</div>',
       '<input id="audioupload" type="file" accept="audio/*">',
       '<button id="addaudio" onclick="addaudio(\'' + albumName +'\')">',
