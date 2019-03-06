@@ -94,22 +94,26 @@ function getTranslation(s3_url) {
       's3_file': {S: '0014.wav'}
     }
   };
-  var result = ''
-  var dynamoResult = dynamodb.getItem(params, function(err, data) {
+  return dynamodb.getItem(params, function(err, data) {
     if (err) {
       console.log("Error", err);
     } else {
       console.log("Success", data.Item.translation.S);
-      var result = data.Item.translation.S;
+      return data.Item.translation.S;
     }
   });
-  return result;
 }
 
 function viewAlbum(albumName) {
   var albumAudiosKey = encodeURIComponent(albumName) + '//';
+
+  
+
   var audioSTR = getTranslation('0014.wav');
-  console.log("1audiostr is", audioSTR)
+
+// https://api.dysarthrai.com/album?albumName=0014.wav
+
+  console.log("1audiostr is", audioSTR.response)
   s3.listObjects({Prefix: albumAudiosKey}, function(err, data) {
     if (err) {
       return alert('There was an error viewing your album: ' + err.message);
