@@ -94,26 +94,18 @@ function getTranslation(s3_url) {
       's3_file': {S: '0014.wav'}
     }
   };
-  return dynamodb.getItem(params, function(err, data) {
+  dynamodb.getItem(params, function(err, data) {
     if (err) {
       console.log("Error", err);
     } else {
-      console.log("Success", data.Item.translation.S);
-      return data.Item.translation.S;
+      // console.log("Success", data.Item.translation.S);
+      document.getElementById(s3_url).innerHTML = data.Item.translation.S;
     }
   });
 }
 
 function viewAlbum(albumName) {
   var albumAudiosKey = encodeURIComponent(albumName) + '//';
-
-  
-
-  var audioSTR = getTranslation('0014.wav');
-
-// https://api.dysarthrai.com/album?albumName=0014.wav
-
-  console.log("1audiostr is", audioSTR.response)
   s3.listObjects({Prefix: albumAudiosKey}, function(err, data) {
     if (err) {
       return alert('There was an error viewing your album: ' + err.message);
@@ -135,8 +127,7 @@ function viewAlbum(albumName) {
           '<th>',
             audioKey.replace(albumAudiosKey, ''),
           '</th>',
-          '<th>',
-            audioSTR,
+          '<th id="' + audioKey + '">',
           '</tr>'
         ]);
     });
@@ -162,6 +153,10 @@ function viewAlbum(albumName) {
       '</button>',
     ]
     document.getElementById('app').innerHTML = getHtml(htmlTemplate);
+    data.Contents.map(function(audio) {
+      var audioKey = audio.Key;
+      getTranslation(audioKey);
+    });
   });
 }
 
