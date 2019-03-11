@@ -91,15 +91,19 @@ function getTranslation(s3_url) {
   var params = {
     TableName: 'audio_translations',
     Key: {
-      's3_file': {S: '0014.wav'}
+      's3_file': {S: s3_url}
     }
   };
   dynamodb.getItem(params, function(err, data) {
     if (err) {
       console.log("Error", err);
     } else {
-      // console.log("Success", data.Item.translation.S);
-      document.getElementById(s3_url).innerHTML = data.Item.translation.S;
+      try {
+        document.getElementById(s3_url).innerHTML = data.Item.translation.S;
+      }
+      catch(err) {
+        document.getElementById(s3_url).innerHTML = 'Audio File Uploaded...'
+      }
     }
   });
 }
@@ -128,6 +132,7 @@ function viewAlbum(albumName) {
             audioKey.replace(albumAudiosKey, ''),
           '</th>',
           '<th id="' + audioKey + '">',
+            'Loading Status...',
           '</tr>'
         ]);
     });
