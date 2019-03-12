@@ -1,5 +1,6 @@
 import json
 import boto3
+import random
 from boto3.dynamodb.conditions import Key, Attr
 from botocore.exceptions import ClientError
 
@@ -15,6 +16,18 @@ class DecimalEncoder(json.JSONEncoder):
 
 def lambda_handler(event, context):
     
+    translations_list = ['what day is today',
+    'how are you',
+    'i am hungry',
+    'i need to go to the bathroom',
+    'i am tired',
+    'i am happy',
+    'i am sad',
+    'the quick brown fox jumped over the lazy dog',
+    'i want to go for a walk',
+    'please turn on the tv'
+        ]
+    
     dynamodb = boto3.resource("dynamodb",
         region_name='us-east-1')
     translations_table = dynamodb.Table('audio_translations')
@@ -25,7 +38,7 @@ def lambda_handler(event, context):
         response = translations_table.put_item(
            Item={
                 's3_file': s3_key,
-                'translation': 'Testing123'
+                'translation': translations_list[random.randint(0,10)]
             }
         )
     
