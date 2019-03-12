@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="product.css" rel="stylesheet">
     <script src="./app.js"></script>
     <script>
        function getHtml(template) {
@@ -15,7 +16,22 @@
     </script>
   </head>
   <body>
+
+    <nav class="site-header sticky-top py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <img class="img-fluid" class="mr-2" width="20" height="20" src="favicon.png" alt="DysarthrAI">
+          <strong>DysarthrAI</strong>
+        </a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Get Translations</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">About</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Members</a>
+      </div>
+    </nav>
+
+
     <div class="container">
+      <br/>
       <h1>DysarthrAI</h1>
       <h2>Communication Assistant for Dysarthric Speech</h2>
       <div id="app"></div>

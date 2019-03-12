@@ -42,12 +42,11 @@ function listAlbums() {
       });
       var message = albums.length ?
         getHtml([
-          '<p>Click on an album name to view it.</p>',
-          '<p>Click on the X to delete the album.</p>'
+          '<p>Click on an audio album name to view audio files, and click on the X to delete the album.</p>'
         ]) :
-        '<p>You do not have any albums. Please Create album.';
+        '<p>You do not have any albums. Please create album.';
       var htmlTemplate = [
-        '<h2>Albums</h2>',
+        '<h2>Audio Albums</h2>',
         message,
         '<table class="table">',
           '<thead class="thead-light">',
@@ -58,7 +57,7 @@ function listAlbums() {
           '</thead>',
           getHtml(albums),
         '</table>',
-        '<button class="btn" onclick="createAlbum(prompt(\'Enter Album Name:\'))">',
+        '<button class="btn btn-primary" onclick="createAlbum(prompt(\'Enter Album Name:\'))">',
           'Create New Album',
         '</button>'
       ]
@@ -173,6 +172,7 @@ function viewAlbum(albumName) {
           '</button>',
         '</div>',
       '</div>',
+      '<br/>',
       '<div class="row">',
         '<button class="btn btn-primary" onclick="listAlbums()">',
           'Back To Albums',
