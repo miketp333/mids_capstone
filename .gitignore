@@ -4,5 +4,27 @@ data/recorded/
 **/.DS_Store
 *checkpoint*
 capstone-c60aec7ead62.json
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+dysarthrai-website/node_modules
+dysarthrai-website/.pnp
+dysarthrai-website/.pnp.js
+
+# testing
+dysarthrai-website/coverage
+
+# production
 dysarthrai-website/build
-dysarthrai-website/package-lock.json
+
+# misc
+dysarthrai-website/.DS_Store
+dysarthrai-website/.env.local
+dysarthrai-website/.env.development.local
+dysarthrai-website/.env.test.local
+dysarthrai-website/.env.production.local
+
+dysarthrai-website/npm-debug.log*
+dysarthrai-website/yarn-debug.log*
+dysarthrai-website/yarn-error.log*
