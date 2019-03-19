@@ -184,33 +184,36 @@ class TrainingAudios extends React.Component {
                             translations={this.state}
                             deleteAudio={(i) => this.deleteAudio(i)} />
         <div className="row">
-          <div className="custom-file">
-            <input type="file"
-                   className="custom-file-input"
-                   id="trainaudioupload"
-                   accept="audio/*"
-                   onChange={(event) => this.setState({inputFile: event.target.files[0]})}
-            />
-            <label className="custom-file-label"
-                   htmlFor="trainaudioupload"
-                   id="trainaudiouploadlabel">{this.state.inputFile.name}</label>
+          <div className="container">
+            <div className="custom-file">
+              <input type="file"
+                     className="custom-file-input"
+                     id="trainaudioupload"
+                     accept="audio/*"
+                     onChange={(event) => this.setState({inputFile: event.target.files[0]})}
+              />
+              <label className="custom-file-label"
+                     htmlFor="trainaudioupload"
+                     id="trainaudiouploadlabel">{this.state.inputFile.name}</label>
+            </div>
           </div>
         </div>
         <br />
         <div className="row">
-          <input className="form-control"
-                 type="text"
-                 placeholder="Insert Actual Translation"
-                 onChange={(event)=> this.setState({inputText: event.target.value})}
-                 value={this.state.inputText}/>
-        </div>
-        <br />
-        <div className="row">
-          <button className="btn btn-info"
-                  id="addtrainaudio"
-                  onClick={this.addAudio} >
-            Add Training Audio
-          </button>
+          <div className="custom-file col-8">
+            <input className="form-control"
+                   type="text"
+                   placeholder="Insert Actual Translation"
+                   onChange={(event)=> this.setState({inputText: event.target.value})}
+                   value={this.state.inputText}/>
+          </div>
+          <div className="col">
+            <button className="btn btn-info"
+                    id="addtrainaudio"
+                    onClick={this.addAudio} >
+              Add Training Audio
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -231,7 +234,7 @@ class TrainingAudiosList extends React.Component {
     return (
         <div>
           <h4>Audio Files for Training</h4>
-          <p>Spaceholder</p>
+          <p>{items.length ? 'Click on the X to delete the audio.' : 'You do not have any audios in this album. Please add audios.'}</p>
           <table className="table">
             <thead className="thead-light">
               <tr>

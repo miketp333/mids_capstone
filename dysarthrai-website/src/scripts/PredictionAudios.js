@@ -198,7 +198,7 @@ class PredictionAudiosList extends React.Component {
     return (
         <div>
           <h4>Audio Files for Prediction</h4>
-          <p>Spaceholder</p>
+          <p>{items.length ? 'Click on the X to delete the audio.' : 'You do not have any audios in this album. Please add audios.'}</p>
           <table className="table">
             <thead className="thead-light">
               <tr>
