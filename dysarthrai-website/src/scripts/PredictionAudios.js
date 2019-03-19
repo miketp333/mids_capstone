@@ -151,7 +151,7 @@ class PredictionAudios extends React.Component {
       obj[audioKey] = 'Audio File Uploaded...';
       that.setState(obj);
       alert('Successfully uploaded audio.');
-      // that.pullAudioNames();
+      that.pullAudioNames();
     });
   }
 
