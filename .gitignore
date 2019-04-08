@@ -4,6 +4,8 @@ data/recorded/
 **/.DS_Store
 *checkpoint*
 capstone-c60aec7ead62.json
+translations_backend/service/*.wav
+translations_backend/service/__pycache__/
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
