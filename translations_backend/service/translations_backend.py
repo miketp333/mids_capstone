@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 import boto3
 import json
 from boto3.dynamodb.conditions import Key, Attr
@@ -21,6 +22,7 @@ session = boto3.Session(
 )
 
 app = Flask(__name__)
+CORS(app)
 
 class DecimalEncoder(json.JSONEncoder):
     def default(self, o):
@@ -88,6 +90,10 @@ def translate(s3_key):
     #     )
     # return json.dumps(response, indent=4, cls=DecimalEncoder)
 
+# Run the service on the local server it has been deployed to,
+# listening on port 8080.
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
 
 
 
