@@ -4,18 +4,6 @@ from numpy.linalg import norm
 from fastdtw import fastdtw, dtw
 import librosa
 import sklearn
-# import librosa.display
-# import numpy as np
-# import scipy.io.wavfile
-# import os
-# from scipy.fftpack import dct
-# import matplotlib
-# matplotlib.use('PS')
-# from matplotlib import pyplot as plt
-# from PIL import Image
-
-def test():
-	return "This is a test2."
 
 def generate_mfcc_lists(train_aud, test_aud, number_mfcc=20):
     aud = { 'train_aud': train_aud, 'test_aud': test_aud}
@@ -57,7 +45,8 @@ def calc_dtw(x_train, x_test, train_len, test_len, radius=1, total_shifts = 7):
     after applying a series of time shifts to the test data
     
     Returns an array of the DTW dist of each shifted MFCC against the training
-    prompt, and prints out the time taken to run the calculation"""
+    prompt, and prints out the time taken to run the calculation
+    """
     
     master_dist = []
     for i,x in enumerate(x_test):
@@ -91,18 +80,7 @@ def calc_dtw(x_train, x_test, train_len, test_len, radius=1, total_shifts = 7):
     return master_dist
 
 
-def prediction(master_dist, y_train, test_len):
-    
-    """
-    Given an array of DTW distances and the correct labels associated with the test case
-    check what the predicted label would be for each shifted MFCC vector by recording
-    the minimum DTW distance between the test and training examples
-    The overall prediction is then the minimum DTW distance across the entire array of
-    shifted vectors
-    
-    Return a table showing the correct label, the overall prediction, and the intermediate
-    predictions for each shift of the test MFCC"""
-    
+def prediction(master_dist, y_train, test_len):    
     prediction_overalldist = []
     dtw_distance = []
     votes = []
