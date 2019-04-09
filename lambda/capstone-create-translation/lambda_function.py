@@ -16,19 +16,7 @@ class DecimalEncoder(json.JSONEncoder):
         return super(DecimalEncoder, self).default(o)
 
 def lambda_handler(event, context):
-    
-    translations_list = ['what day is today',
-    'how are you',
-    'i am hungry',
-    'i need to go to the bathroom',
-    'i am tired',
-    'i am happy',
-    'i am sad',
-    'the quick brown fox jumped over the lazy dog',
-    'i want to go for a walk',
-    'please turn on the tv'
-        ]
-    
+        
     dynamodb = boto3.resource("dynamodb",
         region_name='us-east-1')
     translations_table = dynamodb.Table('audio_translations')
@@ -42,7 +30,7 @@ def lambda_handler(event, context):
                Item={
                     's3_file': s3_key,
                     'album_name': album_name,
-                    'pred_translation': translations_list[random.randint(0,10)]
+                    'pred_translation': 'Pending Translation...'
                 },
                 ConditionExpression='attribute_not_exists(s3_file)'
             )
