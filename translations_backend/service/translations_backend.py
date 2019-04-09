@@ -76,19 +76,18 @@ def translate(s3_key):
     master_dist = translation_model.calc_dtw(x_train, x_test, train_len, test_len, radius=1)
     prediction = translation_model.prediction(master_dist, y_train, test_len)
 
-    # bucket = s3.Bucket('your_bucket')
-    # return str(filenames)
-    return str(prediction)
-    # dynamodb = session.resource("dynamodb",
-    #     region_name='us-east-1')
-    # translations_table = dynamodb.Table('audio_translations')
-    # response = translations_table.put_item(
-    #        Item={
-    #             's3_file': s3_key,
-    #             'pred_translation': 'Omg it workszzz'
-    #         }
-    #     )
-    # return json.dumps(response, indent=4, cls=DecimalEncoder)
+    response = translations_table.update_item(
+        Key={
+            's3_file': s3_key
+        },
+        UpdateExpression="SET pred_translation = :translation",
+        ExpressionAttributeValues={
+            ':translation': prediction[0],
+        },
+        ReturnValues="UPDATED_NEW"
+        )
+
+    return json.dumps(response, indent=4, cls=DecimalEncoder)
 
 # Run the service on the local server it has been deployed to,
 # listening on port 8080.
