@@ -55,8 +55,10 @@ class PredictionAudios extends React.Component {
           } else {
             try {
               let obj = {};
-              obj[audios[i]] = data.Item.pred_translation.S;
-              that.setState(obj);
+              if (typeof data.Item.is_training === 'undefined') {
+                  obj[audios[i]] = data.Item.pred_translation.S;
+                  that.setState(obj);
+              }
             }
             catch(err) {
               let obj = {};
