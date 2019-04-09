@@ -7,6 +7,10 @@ capstone-c60aec7ead62.json
 translations_backend/service/*.wav
 translations_backend/service/__pycache__/
 
+# lambda files
+lambda/capstone-create-translation/*
+!lambda/capstone-create-translation/lambda_function.py
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
