@@ -166,7 +166,7 @@ class ListAlbums extends React.Component {
 
     return (
       <div>
-        <h2>Audio Albums</h2>
+        <h3>Audio Albums</h3>
         {this.props.message}
         <table className="table table-hover">
           <thead className="thead-light">

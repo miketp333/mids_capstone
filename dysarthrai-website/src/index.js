@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { About } from './scripts/About';
 import { Albums } from './scripts/Albums';
 import { Audios } from './scripts/Audios';
+import { Team } from './scripts/Team';
 import favicon from './images/favicon.png';
 
 class App extends React.Component {
@@ -40,13 +41,18 @@ class App extends React.Component {
         />
         <div className="container">
           {this.state.selectedTab == '' && 
-          <Translate selectAlbum={(i) => this.selectAlbum(i)}
-                     resetAlbum={() => this.resetAlbum()}
-                     selectedAlbum={this.state.selectedAlbum}
-          />}
+            <Translate selectAlbum={(i) => this.selectAlbum(i)}
+                       resetAlbum={() => this.resetAlbum()}
+                       selectedAlbum={this.state.selectedAlbum}
+            />
+          }
           {this.state.selectedTab == 'about' &&
-          <About
-          />
+            <About
+            />
+          }
+          {this.state.selectedTab == 'team' &&
+            <Team
+            />
           }
         </div>
       </div>
@@ -65,7 +71,7 @@ class NavBar extends React.Component {
           </a>
           <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('')}>Get Translations</a>
           <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('about')}>About</a>
-          <a className="py-2 d-none d-md-inline-block" href="#">Members</a>
+          <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('team')}>Team</a>
         </div>
       </nav>
     );
