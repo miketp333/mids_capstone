@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+ install:
+   commands:
+     - echo "install step"
+     - cd dysarthrai-website
+     - npm install
+ pre_build:
+   commands:
+     - echo "pre_build step"
+ build:
+   commands:
+     - npm run build
+ post_build:
+   commands:
+     - echo "post_build step"
+     - aws s3 sync --delete build/ s3://capstone-dysarthrai-website/

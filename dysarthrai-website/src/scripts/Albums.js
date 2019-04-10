@@ -179,7 +179,7 @@ class ListAlbums extends React.Component {
               {this.props.albums.map(albumName => 
                 <tr key={albumName}>
                   <td style={clickStyle} onClick={() => this.props.deleteAlbum(albumName)}><b>X</b></td>
-                  <td style={clickStyle} onClick={() => this.props.selectAlbum(albumName)}>{albumName}</td>
+                  <td style={clickStyle} onClick={() => this.props.selectAlbum(albumName)}><b>{albumName}</b></td>
                 </tr>
               )}
           </tbody>

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { About } from './scripts/About';
 import { Albums } from './scripts/Albums';
 import { Audios } from './scripts/Audios';
 import favicon from './images/favicon.png';
@@ -8,9 +9,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedTab: '',
       selectedAlbum: ''
     }
     this.selectAlbum = this.selectAlbum.bind(this);
+    this.selectTab = this.selectTab.bind(this);
   }
 
   selectAlbum(albumName) {
@@ -18,7 +21,11 @@ class App extends React.Component {
   }
 
   resetAlbum() {
-    this.setState({selectedAlbum: ''});
+    this.setState({selectedAlbum: '', selectedTab: ''});
+  }
+
+  selectTab(tabName) {
+    this.setState({selectedTab: tabName});
   }
 
   componentDidMount(){
@@ -29,12 +36,18 @@ class App extends React.Component {
     return (
       <div>
         <NavBar resetAlbum={() => this.resetAlbum()}
+                selectTab={(i) => this.selectTab(i)}
         />
         <div className="container">
+          {this.state.selectedTab == '' && 
           <Translate selectAlbum={(i) => this.selectAlbum(i)}
                      resetAlbum={() => this.resetAlbum()}
                      selectedAlbum={this.state.selectedAlbum}
+          />}
+          {this.state.selectedTab == 'about' &&
+          <About
           />
+          }
         </div>
       </div>
     );
@@ -50,8 +63,8 @@ class NavBar extends React.Component {
             <img className="img-fluid mr-2" width="20" height="20" src={favicon} />
             <strong>DysarthrAI</strong>
           </a>
-          <a className="py-2 d-none d-md-inline-block" href="#">Get Translations</a>
-          <a className="py-2 d-none d-md-inline-block" href="#">About</a>
+          <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('')}>Get Translations</a>
+          <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('about')}>About</a>
           <a className="py-2 d-none d-md-inline-block" href="#">Members</a>
         </div>
       </nav>
@@ -61,27 +74,24 @@ class NavBar extends React.Component {
 
 class Translate extends React.Component {
   render() {
-    if (this.props.selectedAlbum === '') {
-      return (
+    return (
         <div>
           <br/>
           <h1>DysarthrAI</h1>
           <h2>Communication Assistant for Dysarthric Speech</h2>
-          <Albums selectAlbum={(i) => this.props.selectAlbum(i)}/>
+          {
+            this.props.selectedAlbum === '' && 
+            <Albums selectAlbum={(i) => this.props.selectAlbum(i)}/>
+          }
+          {
+            this.props.selectedAlbum !== '' && 
+            <Audios albumName={this.props.selectedAlbum}
+                    resetAlbum={() => this.props.resetAlbum()}
+            />
+          }
+          
         </div>
-      );
-    } else {
-      return (
-        <div>
-          <br/>
-          <h1>DysarthrAI</h1>
-          <h2>Communication Assistant for Dysarthric Speech</h2>
-          <Audios albumName={this.props.selectedAlbum}
-                  resetAlbum={() => this.props.resetAlbum()}
-          />
-        </div>
-      );
-    }
+    );
   }
 }
 
