@@ -69,9 +69,9 @@ class NavBar extends React.Component {
             <img className="img-fluid mr-2" width="20" height="20" src={favicon} />
             <strong>DysarthrAI</strong>
           </a>
-          <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('')}>Get Translations</a>
-          <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('about')}>About</a>
-          <a className="py-2 d-none d-md-inline-block" href="#" onClick={() => this.props.selectTab('team')}>Team</a>
+          <a className="py-2 d-none d-md-inline-block" href="#translations" onClick={() => this.props.selectTab('')}>Get Translations</a>
+          <a className="py-2 d-none d-md-inline-block" href="#about" onClick={() => this.props.selectTab('about')}>About</a>
+          <a className="py-2 d-none d-md-inline-block" href="#team" onClick={() => this.props.selectTab('team')}>Team</a>
         </div>
       </nav>
     );
