@@ -222,6 +222,10 @@ class TrainingAudios extends React.Component {
 
 class TrainingAudiosList extends React.Component {
   render() {
+    var clickStyle = {  
+      cursor: 'pointer'
+    };
+
     let albumAudiosKey = encodeURIComponent(this.props.albumName) + '//';
     let items = []
     for (let s3_key in this.props.translations) {
@@ -235,7 +239,7 @@ class TrainingAudiosList extends React.Component {
         <div>
           <h4>Audio Files for Training</h4>
           <p>{items.length ? 'Click on the X to delete the audio.' : 'You do not have any audios in this album. Please add audios.'}</p>
-          <table className="table">
+          <table className="table table-hover">
             <thead className="thead-light">
               <tr>
                 <th scope="col">Delete</th>
@@ -246,7 +250,7 @@ class TrainingAudiosList extends React.Component {
             <tbody>
               {items.map(audioName =>
                  <tr key={audioName.replace(albumAudiosKey, '')}>
-                  <td onClick={() => this.props.deleteAudio(audioName)}>X</td>
+                  <td style={clickStyle} onClick={() => this.props.deleteAudio(audioName)}><b>X</b></td>
                   <td>{audioName.replace(albumAudiosKey, '')}</td>
                   <td>{this.props.translations[audioName]}</td>
                  </tr>           

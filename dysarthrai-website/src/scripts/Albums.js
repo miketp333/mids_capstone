@@ -157,14 +157,18 @@ class Albums extends React.Component {
   }
 }
 
-class ListAlbums extends React.Component {
+class ListAlbums extends React.Component {  
 
   render() {
+    var clickStyle = {  
+      cursor: 'pointer'
+    };
+
     return (
       <div>
         <h2>Audio Albums</h2>
         {this.props.message}
-        <table className="table">
+        <table className="table table-hover">
           <thead className="thead-light">
             <tr>
               <th scope="col">Delete</th>
@@ -174,8 +178,8 @@ class ListAlbums extends React.Component {
           <tbody>
               {this.props.albums.map(albumName => 
                 <tr key={albumName}>
-                  <td onClick={() => this.props.deleteAlbum(albumName)}>X</td>
-                  <td onClick={() => this.props.selectAlbum(albumName)}>{albumName}</td>
+                  <td style={clickStyle} onClick={() => this.props.deleteAlbum(albumName)}><b>X</b></td>
+                  <td style={clickStyle} onClick={() => this.props.selectAlbum(albumName)}>{albumName}</td>
                 </tr>
               )}
           </tbody>
