@@ -149,9 +149,6 @@ class PredictionAudios extends React.Component {
       if (err) {
         return alert('There was an error uploading your audio: ', err.message);
       }
-      let obj = {};
-      obj[audioKey] = 'Audio File Uploaded...';
-      that.setState(obj);
       const Http = new XMLHttpRequest();
       const url = 'https://api.dysarthrai.com/translate/'+audioKey;
       Http.open('GET', url);
@@ -162,6 +159,9 @@ class PredictionAudios extends React.Component {
           that.pullAudioNames();
         }
       }
+      let obj = {};
+      obj[audioKey] = 'Please wait for a translation...';
+      that.setState(obj);
       alert('Successfully uploaded audio.');
     });
   }
