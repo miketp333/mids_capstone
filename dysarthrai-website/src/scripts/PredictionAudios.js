@@ -152,8 +152,17 @@ class PredictionAudios extends React.Component {
       let obj = {};
       obj[audioKey] = 'Audio File Uploaded...';
       that.setState(obj);
+      const Http = new XMLHttpRequest();
+      const url = 'http://w210backend-nlb-d9bcece2494a9651.elb.us-east-1.amazonaws.com/translate/'+audioKey;
+      Http.open('GET', url);
+      Http.send();
+      Http.onreadystatechange=function() {
+        if(this.readyState === 4) {
+          // console.log(Http.responseText);
+          that.pullAudioNames();
+        }
+      }
       alert('Successfully uploaded audio.');
-      that.pullAudioNames();
     });
   }
 

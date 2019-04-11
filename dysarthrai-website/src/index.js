@@ -40,17 +40,17 @@ class App extends React.Component {
                 selectTab={(i) => this.selectTab(i)}
         />
         <div className="container">
-          {this.state.selectedTab == '' && 
+          {this.state.selectedTab === '' && 
             <Translate selectAlbum={(i) => this.selectAlbum(i)}
                        resetAlbum={() => this.resetAlbum()}
                        selectedAlbum={this.state.selectedAlbum}
             />
           }
-          {this.state.selectedTab == 'about' &&
+          {this.state.selectedTab === 'about' &&
             <About
             />
           }
-          {this.state.selectedTab == 'team' &&
+          {this.state.selectedTab === 'team' &&
             <Team
             />
           }
@@ -66,7 +66,7 @@ class NavBar extends React.Component {
       <nav className="site-header sticky-top py-1">
         <div className="container d-flex flex-column flex-md-row justify-content-between">
           <a href="#" onClick={this.props.resetAlbum} className="navbar-brand d-flex align-items-center">
-            <img className="img-fluid mr-2" width="20" height="20" src={favicon} />
+            <img className="img-fluid mr-2" width="20" height="20" src={favicon} alt="DysarthrAI"/>
             <strong>DysarthrAI</strong>
           </a>
           <a className="py-2 d-none d-md-inline-block" href="#translations" onClick={() => this.props.selectTab('')}>Get Translations</a>
