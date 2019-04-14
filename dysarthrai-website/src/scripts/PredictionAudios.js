@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import { RecordAudios } from './RecordAudios';
 
 class PredictionAudios extends React.Component {
   constructor(props) {
@@ -192,7 +193,7 @@ class PredictionAudios extends React.Component {
           </div>
         </div>
         <br/>
-        <UploadCustomAudio />
+        <RecordAudios />
       </div>
     )
   }
