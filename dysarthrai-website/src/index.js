@@ -66,14 +66,14 @@ class TopNavBar extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#" onClick={() => this.props.selectTab('')}>
+        <Navbar.Brand href="#" onClick={this.props.resetAlbum}>
           <img className="img-fluid mr-2" width="20" height="20" src={favicon} alt="DysarthrAI"/>
           <strong>DysarthrAI</strong>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#translations" onClick={() => this.props.selectTab('')}>Get Translations</Nav.Link>
+            <Nav.Link href="#translations" onClick={this.props.resetAlbum}>Get Translations</Nav.Link>
             <Nav.Link href="#about" onClick={() => this.props.selectTab('about')}>About</Nav.Link>
             <Nav.Link href="#team" onClick={() => this.props.selectTab('team')}>Team</Nav.Link>
           </Nav>
