@@ -1,6 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../product.css';
 
 class PredictionAudios extends React.Component {
   constructor(props) {

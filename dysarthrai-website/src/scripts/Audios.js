@@ -1,6 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../product.css';
 import { TrainingAudios } from './TrainingAudios';
 import { PredictionAudios } from './PredictionAudios';
 

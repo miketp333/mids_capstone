@@ -1,6 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../product.css';
 
 class Albums extends React.Component {
   constructor(props) {
