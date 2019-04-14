@@ -191,6 +191,8 @@ class PredictionAudios extends React.Component {
             </button>
           </div>
         </div>
+        <br/>
+        <UploadCustomAudio />
       </div>
     )
   }
