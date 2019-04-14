@@ -1,4 +1,5 @@
 import React from 'react';
+import favicon from '../images/favicon.png';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class About extends React.Component {
@@ -6,7 +7,7 @@ class About extends React.Component {
     return (
       <div>
         <br/>
-        <h1>DysarthrAI</h1>
+        <h1> <img className="img-fluid" width="100" height="100" src={favicon} alt="DysarthrAI"/> DysarthrAI </h1>
         <h2>Communication Assistant for Dysarthric Speech</h2>
         <h3>About</h3>
         <p>

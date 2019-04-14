@@ -5,6 +5,8 @@ import { Albums } from './scripts/Albums';
 import { Audios } from './scripts/Audios';
 import { Team } from './scripts/Team';
 import favicon from './images/favicon.png';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar resetAlbum={() => this.resetAlbum()}
+        <TopNavBar resetAlbum={() => this.resetAlbum()}
                 selectTab={(i) => this.selectTab(i)}
         />
         <div className="container">
@@ -60,20 +62,23 @@ class App extends React.Component {
   }
 }
 
-class NavBar extends React.Component {
+class TopNavBar extends React.Component {
   render() {
     return (
-      <nav className="site-header sticky-top py-1">
-        <div className="container d-flex flex-column flex-md-row justify-content-between">
-          <a href="#" onClick={this.props.resetAlbum} className="navbar-brand d-flex align-items-center">
-            <img className="img-fluid mr-2" width="20" height="20" src={favicon} alt="DysarthrAI"/>
-            <strong>DysarthrAI</strong>
-          </a>
-          <a className="py-2 d-none d-md-inline-block" href="#translations" onClick={() => this.props.selectTab('')}>Get Translations</a>
-          <a className="py-2 d-none d-md-inline-block" href="#about" onClick={() => this.props.selectTab('about')}>About</a>
-          <a className="py-2 d-none d-md-inline-block" href="#team" onClick={() => this.props.selectTab('team')}>Team</a>
-        </div>
-      </nav>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#" onClick={() => this.props.selectTab('')}>
+          <img className="img-fluid mr-2" width="20" height="20" src={favicon} alt="DysarthrAI"/>
+          <strong>DysarthrAI</strong>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#translations" onClick={() => this.props.selectTab('')}>Get Translations</Nav.Link>
+            <Nav.Link href="#about" onClick={() => this.props.selectTab('about')}>About</Nav.Link>
+            <Nav.Link href="#team" onClick={() => this.props.selectTab('team')}>Team</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }
