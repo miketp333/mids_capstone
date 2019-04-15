@@ -1,8 +1,12 @@
-# DysarthrAI
+# <img src="./dysarthrai-website/src/images/favicon.png" width="100"> &nbsp; DysarthrAI
 
 ### A Voice for All: Deep Learning Communication Assistant for People with Dysarthric Speech
 
-##### Simon Hodgkinson, Michael Powers, Rich Ung
+#### Simon Hodgkinson, Michael Powers, Rich Ung
+
+### Project Deliverable
+
+* #### [Website](https://dysarthrai.com/)
 
 ### Table of Contents
 
@@ -13,6 +17,7 @@
 1. [Website App Implementation](#website)
 1. [Resources](#resources)
 1. [Contact Us](#contact-us)
+1. [Appendix](#appendix)
 
 ### About
 
@@ -22,6 +27,8 @@ Our application, DysarthrAI, is a communication assistant for people with dysart
 
 ### Datasets
 
+The TORGO data is downloaded and unzipped to data/TORGO. This folder contains 8 folders, one for each person ("F01", "F03", etc.) - 3 females and 5 males. It will not appear in the Github repo because it is added to the .gitignore file. It is too large to add to Github.
+
 ### Model Generation
 
 ### Final Model
@@ -30,14 +37,19 @@ Our application, DysarthrAI, is a communication assistant for people with dysart
 
 ### Resources
 
+* [Link to Planning Google Doc](https://docs.google.com/document/d/1TVl2XQT2vtzYGe07BVmdoNZk0fiAlElBSvRJIO_-4u4/edit#)
+
 ### Contact Us
 
+Feel free to contact any of the team members below if you have any additional questions:
 
-[Link to Planning Google Doc](https://docs.google.com/document/d/1TVl2XQT2vtzYGe07BVmdoNZk0fiAlElBSvRJIO_-4u4/edit#)
+* [Simon Hodgkinson](https://www.linkedin.com/in/simon-hodgkinson/)
+* [Michael Powers](https://www.linkedin.com/in/michael-powers-0552204b/)
+* [Rich Ung](https://www.linkedin.com/in/ungrich/)
 
-The TORGO data is downloaded and unzipped to data/TORGO. This folder contains 8 folders, one for each person ("F01", "F03", etc.) - 3 females and 5 males. It will not appear in the Github repo because it is added to the .gitignore file. It is too large to add to Github.
+### Appendix
 
-## Loading Environment
+#### Loading Environment
 
 Run the following command within the base directory of this repository to **build** the notebook Docker environment for this project:
 ```
