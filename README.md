@@ -39,7 +39,16 @@ Our final model is located [here](./models/dtw_dysarthric_speech_all-FINAL.ipynb
 
 ### Website App Implementation
 
-The website was created through various services from AWS.
+The website was created through various services from AWS:
+![Website App Architecture](./assets/web_architecture.png)
+
+#### Backend for Model
+
+The [final model](./models/dtw_dysarthric_speech_all-FINAL.ipynb) that we've developed was implemented into a Docker container running a Flask application. This Flask application gathers the data from S3, runs the model, and updates the results in DynamoDB. Since Flask is written in Python, implementing the final model within our app became easier using Flask and Docker. The Docker container is then deployed to Fargate, which allows us to run containers in the cloud without managing the infrastructure.
+
+#### Frontend Website
+
+The frontend website is built using React, which is a javascript framework that helps build interactive applications. This website is then deployed to S3, which Route53 and Cloudfront use to direct users whenever they access *dysarthrai.com*. This frontend website then uses S3 to upload, store, and manage audio files, DynamoDB to find and update audio labels, and Docker/Fargate to run the model that we've developed over the past couple of weeks.
 
 ### Resources
 
