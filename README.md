@@ -14,7 +14,7 @@
 1. [Datasets](#datasets)
 1. [Model Generation](#model-generation)
 1. [Final Model](#final-model)
-1. [Website App Implementation](#website)
+1. [Website App Implementation](#website-app-implementation)
 1. [Resources](#resources)
 1. [Contact Us](#contact-us)
 1. [Appendix](#appendix)
@@ -27,17 +27,27 @@ Our application, DysarthrAI, is a communication assistant for people with dysart
 
 ### Datasets
 
-The TORGO data is downloaded and unzipped to data/TORGO. This folder contains 8 folders, one for each person ("F01", "F03", etc.) - 3 females and 5 males. It will not appear in the Github repo because it is added to the .gitignore file. It is too large to add to Github.
+We mainly used the TORGO dataset located [here](http://www.cs.toronto.edu/~complingweb/data/TORGO/torgo.html).
+
+The TORGO data is downloaded and unzipped to data/TORGO. This folder contains 8 folders, one for each person ("F01", "F03", etc.) - 3 females and 5 males. However, these directories are also added to the .gitignore file because they are also very large and would take up too much space within our repository.
 
 ### Model Generation
 
 ### Final Model
 
+Our final model is located [here](./models/dtw_dysarthric_speech_all-FINAL.ipynb)
+
 ### Website App Implementation
+
+The website was created through various services from AWS.
 
 ### Resources
 
 * [Link to Planning Google Doc](https://docs.google.com/document/d/1TVl2XQT2vtzYGe07BVmdoNZk0fiAlElBSvRJIO_-4u4/edit#)
+* Presentations
+  * [Presentation 1](https://docs.google.com/presentation/d/1NoQqhUkKJXRUU2JuhEzIH_LCEC_Ro_iMn56PxdU_Ie4/edit?usp=sharing)
+  * [Presentation 2](https://docs.google.com/presentation/d/1oac-m1yD7Rrx0pIOM2_rAOaKrlOFsfEPtlV-CWo0OVI/edit?usp=sharing)
+  * [Presentation 3](https://docs.google.com/presentation/d/1ISPXifDLj0iRdMZYYinSMcSSmrMuGREpaNuP8lE0lQ4/edit?usp=sharing)
 
 ### Contact Us
 
