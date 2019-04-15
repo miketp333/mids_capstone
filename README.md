@@ -31,6 +31,17 @@ We mainly used the TORGO dataset located [here](http://www.cs.toronto.edu/~compl
 
 The TORGO data is downloaded and unzipped to data/TORGO. This folder contains 8 folders, one for each person ("F01", "F03", etc.) - 3 females and 5 males. However, these directories are also added to the .gitignore file because they are also very large and would take up too much space within our repository.
 
+We performed a series of transformations and data cleaning as shown within the following notebooks:
+
+1. [Download Dataset](./0_load_dataset.ipynb)
+1. [Create Spectrograms](./1_create_spectrograms.ipynb)
+1. [Create indexes](./2_create_index.ipynb)
+1. [Create MFCCs](./4_create_MFCCs.ipynb)
+
+These notebooks also involve creating spectrograms and MFCCs so that we can further analyze the audio files and create models.
+
+We also ran our datasets on AWS Transcribe and the Google Translate API to see the accuracy of audio files from people with dysarthric speech. Our code is found within [this notebook](./3_compare_aws_google.ipynb).
+
 ### Model Generation
 
 ### Final Model
@@ -44,11 +55,11 @@ The website was created through various services from AWS:
 
 #### Backend for Model
 
-The [final model](./models/dtw_dysarthric_speech_all-FINAL.ipynb) that we've developed was implemented into a Docker container running a Flask application. This Flask application gathers the data from S3, runs the model, and updates the results in DynamoDB. Since Flask is written in Python, implementing the final model within our app became easier using Flask and Docker. The Docker container is then deployed to Fargate, which allows us to run containers in the cloud without managing the infrastructure.
+The [final model](./models/dtw_dysarthric_speech_all-FINAL.ipynb) that we've developed was implemented into a Docker container running a [Flask](http://flask.pocoo.org/) application. This Flask application gathers the data from S3, runs the model, and updates the results in DynamoDB. Since Flask is written in Python, implementing the final model within our app became easier using Flask and Docker. The Docker container is then deployed to [Fargate](https://aws.amazon.com/fargate/), which allows us to run containers in the cloud without managing the infrastructure.
 
 #### Frontend Website
 
-The frontend website is built using React, which is a javascript framework that helps build interactive applications. This website is then deployed to S3, which Route53 and Cloudfront use to direct users whenever they access *dysarthrai.com*. This frontend website then uses S3 to upload, store, and manage audio files, DynamoDB to find and update audio labels, and Docker/Fargate to run the model that we've developed over the past couple of weeks.
+The frontend website is built using [React](https://reactjs.org/), which is a javascript framework that helps build interactive applications. This website is then deployed to S3, which [Route 53](https://aws.amazon.com/route53/) and [Cloudfront](https://aws.amazon.com/cloudfront/) use to direct users whenever they access *dysarthrai.com*. This frontend website then uses S3 to upload, store, and manage audio files, DynamoDB to find and update audio labels, and Docker/Fargate to run the model that we've developed over the past couple of weeks.
 
 ### Resources
 
