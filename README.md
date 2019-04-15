@@ -1,6 +1,37 @@
+# DysarthrAI
+
 ### A Voice for All: Deep Learning Communication Assistant for People with Dysarthric Speech
 
 ##### Simon Hodgkinson, Michael Powers, Rich Ung
+
+### Table of Contents
+
+1. [About](#about)
+1. [Datasets](#datasets)
+1. [Model Generation](#model-generation)
+1. [Final Model](#final-model)
+1. [Website App Implementation](#website)
+1. [Resources](#resources)
+1. [Contact Us](#contact-us)
+
+### About
+
+Our mission is to improve the communication abilities of people with dysarthric speech. Dysarthria is a condition where muscles used for speech are weak and hard to control, resulting in slurred or slow speech that can be difficult to understand. Common causes of dysarthria include neurological disorders such as stroke, brain injury, brain tumors, and conditions that cause facial paralysis or tongue or throat muscle weakness.
+
+Our application, DysarthrAI, is a communication assistant for people with dysarthric speech. It enables these individuals to communicate phrases to others, regardless of their vocal disabilities. The speaker-dependent model requires the user to store phrases they wish to communicate in the future, along with translations of those phrases. Once a phrase is saved, the user can speak the phrase into the app which will use our algorithm to provide a clear audio translation using text to speech.Our application, DysarthrAI, is a communication assistant for people with dysarthric speech. It enables these individuals to communicate phrases to others, regardless of their vocal disabilities. The speaker-dependent model requires the user to store phrases they wish to communicate in the future, along with translations of those phrases. Once a phrase is saved, the user can speak the phrase into the app which will use our algorithm to provide a clear audio translation using text to speech.
+
+### Datasets
+
+### Model Generation
+
+### Final Model
+
+### Website App Implementation
+
+### Resources
+
+### Contact Us
+
 
 [Link to Planning Google Doc](https://docs.google.com/document/d/1TVl2XQT2vtzYGe07BVmdoNZk0fiAlElBSvRJIO_-4u4/edit#)
 
