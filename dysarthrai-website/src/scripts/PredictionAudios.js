@@ -198,10 +198,6 @@ class PredictionAudios extends React.Component {
 
 class PredictionAudiosList extends React.Component {
   render() {
-    var clickStyle = {  
-      cursor: 'pointer'
-    };
-
     let albumAudiosKey = encodeURIComponent(this.props.albumName) + '//';
     let items = []
     for (let s3_key in this.props.translations) {
@@ -224,7 +220,7 @@ class PredictionAudiosList extends React.Component {
             <tbody>
             {items.map(audioName =>
                <tr key={audioName.replace(albumAudiosKey, '')}>
-                <td style={clickStyle} onClick={() => this.props.deleteAudio(audioName)}><b>X</b></td>
+                <td style={{cursor: 'pointer', width: '7%'}} onClick={() => this.props.deleteAudio(audioName)}><b>X</b></td>
                 <td>{audioName.replace(albumAudiosKey, '')}</td>
                 <td>{this.props.translations[audioName]}</td>
                </tr>           
