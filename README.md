@@ -27,7 +27,7 @@ Our application, DysarthrAI, is a communication assistant for people with dysart
 
 ### Datasets
 
-We mainly used the TORGO dataset located [here](http://www.cs.toronto.edu/~complingweb/data/TORGO/torgo.html).
+We used the TORGO dataset located [here](http://www.cs.toronto.edu/~complingweb/data/TORGO/torgo.html).
 
 The TORGO data is downloaded and unzipped to data/TORGO. This folder contains 8 folders, one for each person ("F01", "F03", etc.) - 3 females and 5 males. However, these directories are also added to the .gitignore file because they are also very large and would take up too much space within our repository.
 
@@ -50,7 +50,28 @@ Our final model is located [here](./models/dtw_dysarthric_speech_all-FINAL.ipynb
 
 ### Website App Implementation
 
+We've built a [website app](https://dysarthrai.com/) that allows a user to:
+* Upload audio files with translation label ("saved phrases") - one file for each phrase the user wishes the system to recognize
+* Upload audio files without translation label ("requested phrase"), and request a translation from the system
+Provide translation validation (yes/no) back to the system
+
+![Front End](./assets/front-end.png)
+
+This allows us to run our model on new audio file datasets and gather more audio file training data to further improve our models.
+
+When an audio file with translation label (“saved phrase”) is added, the system will:
+* Convert the audio to a MFCC vector, and store that vector in a database
+
+When a “requested phrase” enters the system, the model will:
+* Convert the audio to a MFCC vector
+* Calculate DTW distance between the vector and each "saved phrase" MFCC vector
+* Choose the “saved phrase” that is the closest match - minimum DTW distance
+* Display the translation label
+
+![Back End](./assets/back-end.png)
+
 The website was created through various services from AWS:
+
 ![Website App Architecture](./assets/web_architecture.png)
 
 #### Backend for Model
