@@ -12,8 +12,7 @@
 
 1. [About](#about)
 1. [Datasets](#datasets)
-1. [Model Generation](#model-generation)
-1. [Final Model](#final-model)
+1. [Model Details](#model-details)
 1. [Website App Implementation](#website-app-implementation)
 1. [Resources](#resources)
 1. [Contact Us](#contact-us)
@@ -42,11 +41,28 @@ These notebooks also involve creating spectrograms and MFCCs so that we can furt
 
 We also ran our datasets on AWS Transcribe and the Google Translate API to see the accuracy of audio files from people with dysarthric speech. Our code is found within [this notebook](./3_compare_aws_google.ipynb).
 
-### Model Generation
+### Model Details
 
-### Final Model
+#### MFCC's (Mel Frequency Cepstral Coefficients)
+* Been found to outperform spectrograms in ASR systems
+* Similar to log-scaled spectrogram with bucketing into distinct 'coefficients'
+* Inspired by human hearing (we resolve sound in quasi-log frequency bands)
+![MFCCs](./dysarthrai-website/src/images/MFCCs.png)
 
-Our final model is located [here](./models/dtw_dysarthric_speech_all-FINAL.ipynb)
+#### Dynamic Time Warping (DTW)
+* Measures similarity between two sequences, taking into account different production rates
+* Does not require a lot of training data, unlike deep learning approaches such as CNN
+* Dysarthric speech particularly prone to pauses or variable speed, making them good candidate for normalization using DTW
+* The idea is to compare MFCC of input phrase to pre-recorded training examples using DTW to eliminate temporal distortion, then assigning the predicted label to the input phrase with the minimum difference.
+![DTW](./dysarthrai-website/src/images/DTW.png)
+
+#### DTW and "Shifting"
+* Review of examples the DTW algorithm gets wrong suggests an issue in the alignment of MFCC vectors.
+* Even though the DTW algorithm is designed to handle sequences that are not perfectly aligned, it appears it can still sometimes struggle
+![DTW and Shifting](./dysarthrai-website/src/images/shifting.png)
+
+#### Final Model
+* Our final model using the concepts described above is located [here](./models/dtw_dysarthric_speech_all-FINAL.ipynb).
 
 ### Website App Implementation
 
