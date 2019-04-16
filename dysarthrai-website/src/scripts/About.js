@@ -48,23 +48,23 @@ class About extends React.Component {
         </p>
         <ol>
             <li>
-                <a href="https://github.com/miketp333/mids_capstone/0_load_dataset.ipynb" target="_blank" rel="noopener noreferrer">Download Dataset</a>
+                <a href="https://github.com/miketp333/mids_capstone/blob/master/0_load_dataset.ipynb" target="_blank" rel="noopener noreferrer">Download Dataset</a>
             </li>
             <li>
-                <a href="https://github.com/miketp333/mids_capstone/1_create_spectrograms.ipynb" target="_blank" rel="noopener noreferrer">Create Spectrograms</a>
+                <a href="https://github.com/miketp333/mids_capstone/blob/master/1_create_spectrograms.ipynb" target="_blank" rel="noopener noreferrer">Create Spectrograms</a>
             </li>
             <li>
-                <a href="https://github.com/miketp333/mids_capstone/2_create_index.ipynb" target="_blank" rel="noopener noreferrer">Create indexes</a>
+                <a href="https://github.com/miketp333/mids_capstone/blob/master/2_create_index.ipynb" target="_blank" rel="noopener noreferrer">Create indexes</a>
             </li>
             <li>
-                <a href="https://github.com/miketp333/mids_capstone/4_create_MFCCs.ipynb" target="_blank" rel="noopener noreferrer">Create MFCCs</a>
+                <a href="https://github.com/miketp333/mids_capstone/blob/master/4_create_MFCCs.ipynb" target="_blank" rel="noopener noreferrer">Create MFCCs</a>
             </li>
         </ol>
         <p>
             These notebooks also involve creating spectrograms and MFCCs so that we can further analyze the audio files and create models.
         </p>
         <p>
-            We also ran our datasets on AWS Transcribe and the Google Translate API to see the accuracy of audio files from people with dysarthric speech. Our code is found within <a href="https://github.com/miketp333/mids_capstone/3_compare_aws_google.ipynb" target="_blank" rel="noopener noreferrer">this notebook</a>.
+            We also ran our datasets on AWS Transcribe and the Google Translate API to see the accuracy of audio files from people with dysarthric speech. Our code is found within <a href="https://github.com/miketp333/mids_capstone/blob/master/3_compare_aws_google.ipynb" target="_blank" rel="noopener noreferrer">this notebook</a>.
         </p>
 
         <h4>Model Details</h4>
@@ -141,7 +141,7 @@ class About extends React.Component {
         <img className="img-fluid rounded mx-auto d-block" width="50%" height="auto" src={webArchitecture} alt="Website App Architecture"/>
         <h5>Backend for Model</h5>
         <p>
-            The <a href="https://github.com/miketp333/mids_capstone/models/dtw_dysarthric_speech_all-FINAL.ipynb" target="_blank" rel="noopener noreferrer">final model</a> that we've developed was implemented into a Docker container running a <a href="http://flask.pocoo.org/" target="_blank" rel="noopener noreferrer">Flask</a> application. This Flask application gathers the data from S3, runs the model, and updates the results in DynamoDB. Since Flask is written in Python, implementing the final model within our app became easier using Flask and Docker. The Docker container is then deployed to <a href="https://aws.amazon.com/fargate/" target="_blank" rel="noopener noreferrer">Fargate</a>, which allows us to run containers in the cloud without managing the infrastructure.
+            The <a href="https://github.com/miketp333/mids_capstone/blob/master/models/dtw_dysarthric_speech_all-FINAL.ipynb" target="_blank" rel="noopener noreferrer">final model</a> that we've developed was implemented into a Docker container running a <a href="http://flask.pocoo.org/" target="_blank" rel="noopener noreferrer">Flask</a> application. This Flask application gathers the data from S3, runs the model, and updates the results in DynamoDB. Since Flask is written in Python, implementing the final model within our app became easier using Flask and Docker. The Docker container is then deployed to <a href="https://aws.amazon.com/fargate/" target="_blank" rel="noopener noreferrer">Fargate</a>, which allows us to run containers in the cloud without managing the infrastructure.
         </p>
         <h5>Frontend Website</h5>
         <p>
