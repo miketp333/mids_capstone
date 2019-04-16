@@ -55,7 +55,7 @@ We've built a [website app](https://dysarthrai.com/) that allows a user to:
 * Upload audio files without translation label ("requested phrase"), and request a translation from the system
 Provide translation validation (yes/no) back to the system
 
-![Front End](./assets/front-end.png)
+![Front End](./assets/frontend.png)
 
 This allows us to run our model on new audio file datasets and gather more audio file training data to further improve our models.
 
@@ -68,7 +68,7 @@ When a “requested phrase” enters the system, the model will:
 * Choose the “saved phrase” that is the closest match - minimum DTW distance
 * Display the translation label
 
-![Back End](./assets/back-end.png)
+![Back End](./assets/backend.png)
 
 The website was created through various services from AWS:
 
