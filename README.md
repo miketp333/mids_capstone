@@ -53,7 +53,7 @@ Our final model is located [here](./models/dtw_dysarthric_speech_all-FINAL.ipynb
 We've built a [website app](https://dysarthrai.com/) that allows a user to:
 * Upload audio files with translation label ("saved phrases") - one file for each phrase the user wishes the system to recognize
 * Upload audio files without translation label ("requested phrase"), and request a translation from the system
-Provide translation validation (yes/no) back to the system
+* Provide translation validation (yes/no) back to the system
 
 ![Front End](./assets/frontend.png)
 
