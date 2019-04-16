@@ -7,19 +7,6 @@ from boto3.dynamodb.conditions import Key, Attr
 import translation_model
 
 identity_pool_id = 'us-east-1:7259ba57-ba60-49fa-b786-13ef462028a5'
-identity = boto3.client('cognito-identity',
-    region_name='us-east-1')
-identity_response = identity.get_id(IdentityPoolId=identity_pool_id)
-response = identity.get_credentials_for_identity(IdentityId=identity_response['IdentityId'])
-access_key = response['Credentials']['AccessKeyId']
-secret_key = response['Credentials']['SecretKey']
-session_token = response['Credentials']['SessionToken']
-
-session = boto3.Session(
-    aws_access_key_id=access_key,
-    aws_secret_access_key=secret_key,
-    aws_session_token=session_token
-)
 
 app = Flask(__name__)
 CORS(app)
@@ -35,10 +22,23 @@ class DecimalEncoder(json.JSONEncoder):
 
 @app.route('/')
 def index():
-    return 'Translation Index Page, Version 1.1'
+    return 'Translation Index Page, Version 1.2'
 
 @app.route('/translate/<path:s3_key>')
 def translate(s3_key):
+    identity = boto3.client('cognito-identity',
+        region_name='us-east-1')
+    identity_response = identity.get_id(IdentityPoolId=identity_pool_id)
+    response = identity.get_credentials_for_identity(IdentityId=identity_response['IdentityId'])
+    access_key = response['Credentials']['AccessKeyId']
+    secret_key = response['Credentials']['SecretKey']
+    session_token = response['Credentials']['SessionToken']
+
+    session = boto3.Session(
+        aws_access_key_id=access_key,
+        aws_secret_access_key=secret_key,
+        aws_session_token=session_token
+    )
     try:
         album_name = s3_key.split('/')[0]
 
