@@ -89,7 +89,7 @@ class Translate extends React.Component {
         <div>
           <br/>
           <h1> <img className="img-fluid" width="100" height="100" src={favicon} alt="DysarthrAI"/> DysarthrAI </h1>
-          <h2>Communication Assistant for Dysarthric Speech</h2>
+          <h2>Communication assistant for people with Dysarthric speech</h2>
           {
             this.props.selectedAlbum === '' && 
             <Albums selectAlbum={(i) => this.props.selectAlbum(i)}/>

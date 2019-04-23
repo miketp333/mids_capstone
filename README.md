@@ -1,6 +1,6 @@
 # <img src="./dysarthrai-website/src/images/favicon.png" width="100"> &nbsp; DysarthrAI
 
-### A Voice for All: Deep Learning Communication Assistant for People with Dysarthric Speech
+### A Voice for All: Communication assistant for people with Dysarthric speech
 
 #### Simon Hodgkinson, Michael Powers, Rich Ung
 
@@ -22,7 +22,7 @@
 
 Our mission is to improve the communication abilities of people with dysarthric speech. Dysarthria is a condition where muscles used for speech are weak and hard to control, resulting in slurred or slow speech that can be difficult to understand. Common causes of dysarthria include neurological disorders such as stroke, brain injury, brain tumors, and conditions that cause facial paralysis or tongue or throat muscle weakness.
 
-Our application, DysarthrAI, is a communication assistant for people with dysarthric speech. It enables these individuals to communicate phrases to others, regardless of their vocal disabilities. The speaker-dependent model requires the user to store phrases they wish to communicate in the future, along with translations of those phrases. Once a phrase is saved, the user can speak the phrase into the app which will use our algorithm to provide a clear audio translation using text to speech.
+Our application, DysarthrAI, is a communication assistant for people with dysarthric speech. It enables these individuals to communicate phrases to others, regardless of their vocal abilities. The speaker-dependent model requires the user to store phrases they wish to communicate in the future, along with translations of those phrases. Once a phrase is saved, the user can speak the phrase into the app which will use our algorithm to provide a clear audio translation using text to speech.
 
 ### Datasets
 

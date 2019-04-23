@@ -16,7 +16,7 @@ class Team extends React.Component {
       <div>
         <br/>
         <h1> <img className="img-fluid" width="100" height="100" src={favicon} alt="DysarthrAI"/> DysarthrAI </h1>
-        <h2>Communication Assistant for Dysarthric Speech</h2>
+        <h2>Communication assistant for people with Dysarthric speech</h2>
         <h3>The Team</h3>
         <br/>
         <p>The DysarthrAI team is comprised of three members from the capstone course within UC Berkeley's Master of Information and Data Science Capstone Course:</p>
