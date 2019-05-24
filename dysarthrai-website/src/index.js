@@ -90,6 +90,7 @@ class Translate extends React.Component {
           <br/>
           <h1> <img className="img-fluid" width="100" height="100" src={favicon} alt="DysarthrAI"/> DysarthrAI </h1>
           <h2>Communication assistant for people with Dysarthric speech</h2>
+          <p><em>The "Get Translations" portion of this website is turned off in order to prevent additional AWS charges. Please contact any team member if you are interested in turning on this feature again.</em></p>
           {
             this.props.selectedAlbum === '' && 
             <Albums selectAlbum={(i) => this.props.selectAlbum(i)}/>
